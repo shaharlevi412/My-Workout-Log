@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+const API_URL = "https://fitness-backend-0dzi.onrender.com";
 
 const EXERCISE_OPTIONS = [
   { name: "Push Ups", muscle: "Chest" },
@@ -26,7 +27,7 @@ function App() {
 
   const fetchExercises = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/exercises')
+      const res = await axios.get('${API_URL}/api/exercises')
       setExercises(res.data)
     } catch (err) {
       console.error("Error fetching:", err)
@@ -75,7 +76,7 @@ function App() {
     if (currentWorkout.length === 0) return;
     try {
       const promises = currentWorkout.map(ex => 
-        axios.post('http://localhost:5000/api/exercises', {
+        axios.post('${API_URL}/api/exercises', {
           name: ex.name,
           muscle: ex.muscle,
           sets: ex.sets,
@@ -97,7 +98,7 @@ function App() {
   const deleteWorkoutByDate = async (rawDate) => {
     if (!window.confirm(`האם למחוק את כל האימון של תאריך ${new Date(rawDate).toLocaleDateString('he-IL')}?`)) return;
     try {
-      await axios.delete(`http://localhost:5000/api/exercises/by-date/${rawDate}`);
+      await axios.delete(`${API_URL}/api/exercises/by-date/${rawDate}`);
       fetchExercises();
     } catch (err) {
       console.error("Error deleting:", err);

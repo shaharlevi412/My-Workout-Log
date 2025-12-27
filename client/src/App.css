@@ -1,0 +1,274 @@
+/* הגדרות כלליות וצבעים */
+:root {
+  --main-color: #6366f1; /* כחול אינדיגו מודרני */
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  /* כאן השינוי - הוספנו את Heebo כעדיפות ראשונה */
+  font-family: 'Heebo', sans-serif; 
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased; /* גורם לפונט להיראות חלק יותר */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* כדאי להגדיר שגם אינפוטים וכפתורים יירשו את הפונט */
+input, select, button, textarea {
+  font-family: 'Heebo', sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 800; /* עובי חזק במיוחד לכותרות */
+  letter-spacing: -0.5px; /* מצמצם רווחים למראה "מגזיני" */
+}
+
+.app-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* כותרת ראשית */
+.header h1 {
+  text-align: center;
+  color: var(--main-color);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+/* הקונטיינר שעוטף את הכפתור */
+.welcome-screen {
+  display: flex;
+  justify-content: center; /* מרכוז אופקי */
+  align-items: center;     /* מרכוז אנכי */
+  min-height: 300px;       /* נותן גובה לאזור כדי שיהיה מרחב למרכוז */
+  width: 100%;
+}
+
+/* עיצוב הכפתור עצמו כדי שיהיה גדול ובולט במרכז */
+.add-workout-btn {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 50px; /* צורה מעוגלת ויפה */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.add-workout-btn:hover {
+  transform: translateY(-5px); /* אפקט קפיצה קטן במעבר עכבר */
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+}
+
+/* ניווט (טאבים) */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.tab {
+  padding: 12px 24px;
+  border: none;
+  background: #e2e8f0;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: var(--main-color);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* כרטיסיית אימון */
+.workout-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.workout-card h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* טבלת האקסל */
+.excel-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-header, .table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 0.8fr 0.8fr 0.8fr 0.4fr;
+  gap: 30px;
+  align-items: center;
+  padding: 12px;
+}
+
+.table-header {
+  font-weight: 800;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.table-row {
+  background: #fdfdfd;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.added-row {
+  background: #f8fafc;
+  border-left: 4px solid var(--success);
+}
+
+/* אינפוטים בתוך הטבלה */
+.table-row input, .table-row select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.table-row input:focus {
+  outline: none;
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* כפתורים */
+.add-row-btn {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.final-save-btn {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  width: 100%;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.final-save-btn:hover { transform: scale(1.02); }
+
+/* עיצוב ההיסטוריה */
+.history-day-section {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  text-align: center;
+}
+
+.history-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-date-title {
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 12px;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.history-view h2 {
+  text-align: center; /* מרכוז הטקסט */
+  margin: 20px auto 40px auto; /* רווח מלמעלה ומלמטה */
+  width: 100%; /* מוודא שהכותרת תופסת את כל הרוחב כדי שהמרכוז יעבוד */
+  font-size: 2rem;
+  color: var(--main-color);
+  position: relative;
+}
+
+/* בונוס: הוספת קו קטן מתחת לכותרת כדי שיהיה ממש יפה */
+.history-view h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--main-color);
+  margin: 10px auto; /* מרכוז הקו מתחת לטקסט */
+  border-radius: 2px;
+}
+
+.delete-workout-btn {
+  background: #fff1f2;
+  color: var(--danger);
+  border: 1px solid #fecaca;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-workout-btn:hover { background: var(--danger); color: white; }
+
+.history-table-header {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  background: none;
+  border: none;
+}
+
+.history-table-row {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ex-name { font-weight: 800; color: var(--main-color); }
+
+/* התאמה לנייד */
+@media (max-width: 600px) {
+  .table-header { display: none; }
+  .table-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
